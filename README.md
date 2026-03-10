@@ -224,10 +224,9 @@ Install dependencies:
 ```id="deps"
 pip install PyQt6 mido python-rtmidi keyboard numpy
 
+```
 SoundFont 2 File - ColomboGMGS2.sf2 Found HERE:
 https://sourceforge.net/projects/colombogmgs2-sf2/
-```
-
 ---
 
 # ▶ Running the Application
