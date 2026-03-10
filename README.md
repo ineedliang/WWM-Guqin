@@ -1,5 +1,3 @@
-<p align="center">
-
 # 🎼 SuperQin v2
 
 ### Guqin MIDI Mapper • MIDI Toolkit • Automation Player
