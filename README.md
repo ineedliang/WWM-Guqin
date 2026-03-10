@@ -1,178 +1,295 @@
+<p align="center">
+
 # 🎼 SuperQin v2
 
-### Advanced MIDI Player for Guqin (Where Winds Meet)
+### Guqin MIDI Mapper • MIDI Toolkit • Automation Player
 
-![Python](https://img.shields.io/badge/python-3.10+-blue)
-![PyQt6](https://img.shields.io/badge/gui-PyQt6-green)
-![MIDI](https://img.shields.io/badge/midi-supported-purple)
-![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+<img src="https://img.shields.io/badge/python-3.10+-blue">
+<img src="https://img.shields.io/badge/gui-PyQt6-green">
+<img src="https://img.shields.io/badge/midi-processing-purple">
+<img src="https://img.shields.io/badge/platform-Windows-lightgrey">
 
-**SuperQin v2** is an advanced **MIDI playback and automation tool** designed for the **Guqin instrument in *Where Winds Meet***.
+</p>
 
-It allows you to load MIDI files, analyze tracks, mix instruments, and automatically play them in-game using keyboard simulation.
-
-This project expands on earlier Guqin tools by providing a **full graphical interface, MIDI processing engine, and playback control system.**
+<p align="center">
+<b>Convert any MIDI song into playable Guqin music for <i>Where Winds Meet</i></b>
+</p>
 
 ---
 
-# ✨ Features
+# 🎬 Overview
 
-### 🎹 MIDI Playback
+**SuperQin v2** is an advanced **MIDI processing and playback toolkit** designed for the **Guqin instrument in *Where Winds Meet*.**
 
-* Load and play standard `.mid` files
-* Convert MIDI notes to Guqin key inputs
-* Automatic timing synchronization
+The software allows you to take **any MIDI file** and automatically adapt it to fit within the playable range of the Guqin instrument.
 
-### 🖥 Modern GUI
+It functions as a **mini MIDI DAW**, letting users:
 
-* Built with **PyQt6**
-* Real-time playback controls
-* Track visualization widgets
+* analyze MIDI songs
+* modify tracks
+* remove instruments
+* transpose notes
+* remove impossible chords
+* remap notes into playable ranges
+* export playable versions
 
-### 🎛 Track Mixing
+Songs can then be exported as:
 
-* Enable or disable individual MIDI tracks
-* Adjust playback timing
-* Control which instruments are mapped to Guqin
+* **modified MIDI files**
+* **AutoHotkey scripts** for automated playback in-game
 
-### 🎼 Note Visualization
+---
 
-* Visual display of note playback
-* Timeline view for musical structure
-* Useful for debugging MIDI files
+# ✨ Core Features
+
+### 🎹 MIDI → Guqin Conversion
+
+Automatically adapts MIDI songs to the Guqin’s limited key range.
+
+Features include:
+
+* automatic note transposition
+* octave shifting
+* playable range fitting
+* chord simplification
+
+This allows **almost any MIDI file to be converted into something playable.**
+
+---
+
+### 🎛 MIDI Track Mixer
+
+Each MIDI track can be individually controlled.
+
+You can:
+
+* enable / disable tracks
+* remove percussion
+* isolate melody instruments
+* balance multiple tracks
+
+Perfect for cleaning up complex MIDI files.
+
+---
+
+### 🎼 MIDI Editing Tools
+
+SuperQin acts like a **lightweight MIDI editing environment**.
+
+Editing tools include:
+
+* note transposition
+* octave shifting
+* chord tolerance adjustment
+* global time shifting
+* note duration limiting
+* track filtering
+
+---
 
 ### 📊 MIDI Analysis
 
-* Inspect MIDI structure
-* Analyze track timing and note data
-* Identify playable note ranges
+The built-in analyzer lets you inspect:
 
-### ⚡ Real-Time Playback Engine
+* note ranges
+* track density
+* playable regions
+* instrument complexity
 
-* Accurate event scheduling
-* MIDI event processing
-* Optimized timing for rhythm gameplay
+Useful when adapting difficult MIDI arrangements.
+
+---
+
+### 🎵 Playback Engine
+
+Preview your modified MIDI directly in the application.
+
+Includes:
+
+* playback speed control
+* visual note preview
+* chord timing adjustments
+
+---
+
+### 📤 Export Options
+
+After editing, songs can be exported as:
+
+#### Modified MIDI
+
+Export a cleaned or optimized MIDI file.
+
+```id="midi"
+song_optimized.mid
+```
+
+Useful for sharing playable Guqin arrangements.
+
+---
+
+#### AutoHotkey Script
+
+Export a script that **automatically plays the song in-game**.
+
+```id="ahk"
+song_playback.ahk
+```
+
+When executed, the script simulates key presses to play the Guqin automatically.
+
+---
+
+# 🖥 Interface Overview
+
+The interface includes several main sections:
+
+### 🎹 Note Range Display
+
+Shows the playable Guqin key range and highlights incoming MIDI notes.
+
+Notes outside the range can be automatically remapped.
+
+---
+
+### 🎛 Track Mixer
+
+Control which tracks are active and how they are processed.
+
+---
+
+### ⚙ Global Controls
+
+Global transformations including:
+
+* playback speed
+* chord tolerance
+* global octave shifting
+* global semitone transposition
+* time offsets
+
+---
+
+### 📤 Export Tools
+
+Export your processed song as:
+
+* optimized MIDI
+* AutoHotkey playback script
 
 ---
 
 # 🧠 How It Works
 
-```
+```id="pipeline"
 MIDI File
     ↓
-MIDI Processor
+MIDI Analyzer
     ↓
 Track Mixer
     ↓
-Key Mapping System
+Range Remapper
     ↓
-Keyboard Input
+Chord Simplifier
     ↓
-Where Winds Meet (Guqin)
+Playback Engine
+    ↓
+Export
 ```
 
-SuperQin reads MIDI data, processes note events, converts them to Guqin key mappings, and sends keyboard inputs to the game.
+The system processes MIDI data and converts it into a format compatible with the Guqin's playable note range.
 
 ---
 
 # 📦 Project Structure
 
-```
+```id="structure"
 SuperQin/
 │
-├── main_v2.py              # Application launcher
-├── gui_main_v2.py          # Main GUI interface
-├── midi_player_v2.py       # Playback engine
-├── midi_processor_v2.py    # MIDI parsing system
-├── keyboard_map.py         # Guqin key mapping
-├── track_mixer.py          # Track management
-├── note_widget_v2.py       # Visual note display
-├── analyzer.py             # MIDI analysis tools
-└── track_time_dialog.py    # Track timing editor
+├── main_v2.py
+├── gui_main_v2.py
+├── midi_player_v2.py
+├── midi_processor_v2.py
+├── track_mixer.py
+├── keyboard_map.py
+├── analyzer.py
+├── note_widget_v2.py
+└── track_time_dialog.py
 ```
 
 ---
 
 # 🛠 Requirements
 
-Install Python dependencies:
+Install dependencies:
 
-```
-pip install PyQt6 mido python-rtmidi keyboard
-```
-
-You may also need:
-
-```
-pip install numpy
+```id="deps"
+pip install PyQt6 mido python-rtmidi keyboard numpy
 ```
 
 ---
 
-# ▶ Running the Program
+# ▶ Running the Application
 
-Launch the application:
+Launch the GUI:
 
-```
+```id="run"
 python main_v2.py
 ```
 
-The GUI will open and allow you to load MIDI files.
-
 ---
 
-# 🎮 Usage
+# 🎮 Typical Workflow
 
-1. Start **SuperQin v2**
-2. Load a `.mid` file
-3. Select active tracks
-4. Start playback
-5. Switch to the **Guqin instrument in Where Winds Meet**
-
-The tool will automatically play the song.
+1. Load a MIDI file
+2. Analyze note ranges
+3. Disable unnecessary tracks
+4. Auto-fit notes into the Guqin range
+5. Adjust chord tolerance
+6. Preview playback
+7. Export MIDI or AutoHotkey script
 
 ---
 
 # 🎵 Supported MIDI Features
 
-* Multi-track MIDI
-* Tempo changes
-* Note timing synchronization
-* Track filtering
-
-Some extremely complex MIDI files may require track adjustment.
-
----
-
-# ⚠ Notes
-
-* The game must be in focus for keyboard playback.
-* Some MIDI files may contain notes outside the Guqin range.
-* Track filtering may be necessary for optimal playback.
+* multi-track MIDI
+* tempo changes
+* chord handling
+* note remapping
+* instrument filtering
 
 ---
 
-# 💡 Future Improvements
+# 💡 Why This Tool Exists
+
+The **Guqin instrument in Where Winds Meet** has a limited playable range.
+
+Most MIDI songs exceed this range and become unplayable.
+
+SuperQin automatically adapts these songs so they can be played on the Guqin.
+
+---
+
+# 🔮 Future Ideas
 
 Potential upgrades:
 
-* MIDI → Guqin automatic conversion
-* real-time MIDI keyboard support
-* song library manager
-* improved visual timeline
-* exportable Guqin song format
-* latency calibration system
+* real-time MIDI keyboard input
+* automatic melody detection
+* AI-based chord reduction
+* MIDI visualization timeline
+* latency calibration
+* standalone executable build
 
 ---
 
 # 📜 License
 
-Open-source project for educational and personal use.
+Open source project for educational and community use.
 
 ---
 
 # 👤 Credits
 
-Developed as an advanced tool for the **Where Winds Meet Guqin community**.
-
-Inspired by earlier Guqin automation and MIDI playback projects.
+Created for the **Where Winds Meet Guqin music community**.
